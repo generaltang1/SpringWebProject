@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{MainLayout}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div layout:fragment="content">
+  <style>
+    .item {
+      width: 350px;
+      height: 350px;
+      background-color: gray;
+    }
+  </style>
+
+  <form th:action="@{/ProductEdit}" th:object="${product}" method="POST">
+    <table>
+      <tr>
+        <td style="width: 50%;">
+          <div class="item"></div>
+          <form method="post" th:action="@{/Upload}" enctype="multipart/form-data">
+            <div class="form-group">
+              <input type="file" name="file" class="form-control-file">
+            </div>
+          </form>
+        </td>
+        <td style="vertical-align: top;">
+          <input type="text" th:field="*{id}" th:text="*{id}" style="display:none"/>
+          <input type="text" th:field="*{title}" placeholder="Title">
+          <label>가격</label>
+          <input type="number" th:field="*{price}" placeholder="Price">
+          <label>재고</label>
+          <input type="number" th:field="*{stock}" placeholder="Stock">
+          <textarea th:field="*{detail}"></textarea>
+          <button type="submit">Update</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+</html>

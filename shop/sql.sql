@@ -1,0 +1,40 @@
+CREATE DATABASE shop;
+
+USE shop;
+
+CREATE TABLE accounts (
+	id INTEGER AUTO_INCREMENT,
+    name VARCHAR(32) NOT NULL,
+    password VARCHAR(64) NOT NULL,
+    email VARCHAR(32) NOT NULL,
+    created DATETIME NOT NULL DEFAULT(NOW())
+);
+
+INSERT INTO accounts VALUES(DEFAULT, "Admin", "admin", "admin", DEFAULT);
+
+CREATE TABLE products (
+	id INTEGER AUTO_INCREMENT,
+    price INTEGER AUTO_INCREMENT,
+    title VARCHAR(32) NOT NULL,
+    detail TEXT,
+    stock INTEGER NOT NULL,
+    owner INTEGER NOT NULL,
+    created DATETIME NOT NULL DEFAULT(NOW())
+);
+
+CREATE TABLE carts (
+	id INTEGER AUTO_INCREMENT,
+    account_id INTEGER NOT NULL,
+    product_id INTEGER NOT NULL,
+    count INTEGER NOT NULL,
+    created DATETIME NOT NULL DEFAULT(NOW())
+);
+
+CREATE TABLE records (
+	id INTEGER AUTO_INCREMENT,
+    account_id INTEGER NOT NULL,
+    product_id INTEGER NOT NULL,
+	state INTEGER NOT NULL,
+    count INTEGER NOT NULL,
+    created DATETIME NOT NULL DEFAULT(NOW())    
+);

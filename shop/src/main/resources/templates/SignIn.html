@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{SignLayout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<div layout:fragment="content">
+<form th:action="@{/SignIn}" th:object="${signInFields}" method="POST">
+    <label>이메일</label>
+    <input type="text" th:field="*{email}" placeholder="ID">
+    <label>비밀번호</label>
+    <input type="password" th:field="*{password}" placeholder="password">
+    <button type="submit">Login</button>
+</form>
+
+<a th:href="@{/SignUp}"><button>Sign Up</button></a>
+</div>
+</body>
+</html>

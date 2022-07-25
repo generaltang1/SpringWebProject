@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{MainLayout}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div layout:fragment="content">
+    <style>
+        .item {
+            width: 350px;
+            height: 350px;
+            background-color: gray;
+        }
+    </style>
+
+    <form th:action="@{/DoProduct}" th:object="${product}" method="POST">
+        <table style="width:100%">
+            <tr>
+                <td style="width: 50%;">
+                    <div class="item"></div>
+                </td>
+                <td style="vertical-align: top;">
+                    <input type="number" th:field="*{id}" th:text="*{id}" style="display:none"/>
+                    <div class="ptitle" th:text="*{title}"/>
+                    <div class="pprice">\<span th:text="*{price}"/></div>
+                    <div class="pdetail" th:text="*{detail}"/>
+                    <label>주문 수량</label>
+                    <input type="number" id="order_count" value="1" onchange="change_cost()">
+                    <label>총 가격</label>
+                    <input type="number" th:field="*{stock}" id="cost_output">
+                    <button type="submit" name="action" value="Buy">구매</button>
+                    <button type="submit" name="action" value="AddCart">장바구니에 담기</button>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            let count = document.getElementById("order_count");
+            let cost_output = document.getElementById("cost_output");
+            let cost = [[${product.price}]];
+
+            function change_cost() {
+                cost_output.value = cost * count.value;
+            }
+        </script>
+    </form>
+</div>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{MainLayout}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div layout:fragment="content">
+    <style>
+        .preview {
+            width: 150px;
+            height: 150px;
+            background-color: gray;
+        }
+
+        table {
+            width: 100%;
+        }
+    </style>
+
+    <table>
+        <div class="users" th:each="user: ${users}">
+            <tr>
+                <td>
+                    <div class="id" th:text="${user.id}"/>
+                </td>
+                <td>
+                    <div class="name" th:text="${user.name}"/>
+                </td>
+                <td>
+                    <div class="address" th:text="${user.address}"/>
+                </td>
+                <td>
+                    <div class="email" th:text="${user.email}"/>
+                </td>
+            </tr>
+        </div>
+    </table>
+</div>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{MainLayout}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div layout:fragment="content">
+    <div class="profile">
+        <form th:object="${user}" th:action="@{/Profile}" method="POST">
+            <label>이름</label>
+            <input type="text" class="name" th:field="*{name}"/>
+            <label>주소</label>
+            <input type="text" class="address" th:field="*{address}"/>
+            <label>이메일</label>
+            <input type="email" class="email" th:field="*{email}"/>
+            <label>비밀번호</label>
+            <input type="password" class="password" th:field="*{password}"/>
+
+            <button>수정</button>
+        </form>
+    </div>
+</div>
+</html>

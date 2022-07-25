@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{MainLayout}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div layout:fragment="content">
+    <style>
+        .product {
+            display: inline-block;
+            width: 150px;
+            margin: 15px;
+        }
+
+        .preview {
+            width: 150px;
+            height: 150px;
+            background-color: gray;
+        }
+
+        .title, .detail {
+            font-size: 18px;
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+
+    <div id="productList">
+        <a class="product" th:each="product: ${products}" th:href="@{productEdit(id=${product.id})}">
+            <div class="preview"></div>
+            <div class="title" th:text="${product.title}"/>
+            <div class="detail" th:text="${product.price}"/>
+        </a>
+    </div>
+</div>
+</html>

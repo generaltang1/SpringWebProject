@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            background-color: rgb(226, 240, 217);
+        }
+
+        #input_wrapper {
+            margin: 100px 30px;
+            text-align: center;
+        }
+
+        #input_wrapper .input_content {
+            text-align: left;
+            background-color: white;
+            border-radius: 15px;
+            display: inline-block;
+            padding: 50px;
+            width: 600px;
+        }
+
+        #input_wrapper .input_content .title {
+            font-size: 24px;
+        }
+
+        #input_wrapper .input_content .content {
+            margin: 30px 0 0;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(84, 130, 53);
+            color: white;
+            border: none;
+            outline: none;
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="input_wrapper">
+    <div class="input_content">
+        <div class="title" th:text="${title}"></div>
+        <div class="content" layout:fragment="content"></div>
+    </div>
+</div>
+</body>
+</html>

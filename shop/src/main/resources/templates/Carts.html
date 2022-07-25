@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{MainLayout}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div layout:fragment="content">
+    <style>
+        .preview {
+            width: 150px;
+            height: 150px;
+            background-color: gray;
+        }
+    </style>
+
+    <table>
+
+        <a class="product" th:each="product: ${products}" th:href="@{product(id=${product.id})}">
+            <tr>
+                <td>
+                    <div class="preview"></div>
+                </td>
+                <td>
+                    <div class="title" th:text="${product.title}"/>
+                </td>
+                <td>
+                    <div class="detail" th:text="${product.price}"/>
+                </td>
+            </tr>
+        </a>
+    </table>
+</div>
+</html>

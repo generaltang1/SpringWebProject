@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      layout:decorate="~{MainLayout}"
+      layout:decorate="~{../layout/MainLayout}"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
@@ -16,7 +16,7 @@
     <table>
         <tr>
             <td style="width: 50%;">
-                <div class="item"></div>
+                <img th:src="@{/ProductImage(id=${product.id})}" width="350" height="350">
             </td>
             <td style="vertical-align: top;">
                 <form th:action="@{/AddProduct}" th:object="${product}" method="POST">

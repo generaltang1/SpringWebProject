@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      layout:decorate="~{MainLayout}"
+      layout:decorate="~{../layout/MainLayout}"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
@@ -14,19 +14,11 @@
     </style>
 
     <table>
-
-        <a class="product" th:each="product: ${products}" th:href="@{product(id=${product.id})}">
-            <tr>
-                <td>
-                    <div class="preview"></div>
-                </td>
-                <td>
-                    <div class="title" th:text="${product.title}"/>
-                </td>
-                <td>
-                    <div class="detail" th:text="${product.price}"/>
-                </td>
-            </tr>
+        <a th:each="cart: ${carts}" th:href="@{product(id=${products[cart.id].id})}">
+            <img th:src="@{/ProductImage(id=${products[cart.id].id})}" width="150" height="150">
+            <div class="detail" th:text="${products[cart.id].title}"/>
+            <div class="detail" th:text="${products[cart.id].price}"/>
+            <div class="title" th:text="${cart.count}"/>
         </a>
     </table>
 </div>

@@ -24,7 +24,7 @@ public class Account {
     @Column(name = "address", nullable = false, length = 64)
     private String address;
     @Basic
-    @Column(name = "created", nullable = false)
+    @Column(name = "created", nullable = false, insertable = false, updatable = false)
     private Timestamp created;
 
     public int getId() {

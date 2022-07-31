@@ -24,7 +24,7 @@ public class Record {
     @Column(name = "count", nullable = false)
     private int count;
     @Basic
-    @Column(name = "created", nullable = false)
+    @Column(name = "created", nullable = false, insertable = false, updatable = false)
     private Timestamp created;
 
     public int getId() {

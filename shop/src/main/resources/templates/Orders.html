@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en"
+      layout:decorate="~{../layout/MainLayout}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-</body>
+<div layout:fragment="content">
+    <style>
+        .product {
+            display: inline-block;
+            width: 150px;
+            margin: 15px;
+        }
+
+        .preview {
+            width: 150px;
+            height: 150px;
+            background-color: gray;
+        }
+
+        .title, .detail {
+            font-size: 18px;
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+
+    <div id="recordList">
+        <a class="record" th:each="record: ${records}">
+            <img th:src="@{/ProductImage(id=${products[record.id].id})}" width="150" height="150">
+            <div class="title" th:text="${record.count}"/>
+            <div class="title" th:text="${record.state}"/>
+            <div class="detail" th:text="${products[record.id].title}"/>
+        </a>
+    </div>
+</div>
 </html>

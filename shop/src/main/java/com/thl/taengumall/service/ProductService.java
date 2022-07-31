@@ -23,11 +23,6 @@ public class ProductService {
         return products;
     }
 
-    public List<Product> getProductsByAccount(Account account) {
-        var products = repository.findByOwner(account.getId());
-        return products;
-    }
-
     public Product getProductById(int id) {
         var product = repository.findById(id);
         return product;

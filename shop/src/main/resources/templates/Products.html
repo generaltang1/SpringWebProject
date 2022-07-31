@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      layout:decorate="~{MainLayout}"
+      layout:decorate="~{../layout/MainLayout}"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
@@ -26,8 +26,8 @@
     </style>
 
     <div id="productList">
-        <a class="product" th:each="product: ${products}" th:href="@{productEdit(id=${product.id})}">
-            <div class="preview"></div>
+        <a class="product" th:each="product: ${products}" th:href="@{ProductEdit(id=${product.id})}">
+            <img th:src="@{/ProductImage(id=${product.id})}" width="150" height="150">
             <div class="title" th:text="${product.title}"/>
             <div class="detail" th:text="${product.price}"/>
         </a>
